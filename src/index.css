@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+h1{
+  font-family: 'Nunito', sans-serif;
+}
+p{
+  font-family: 'Bebas Neue', sans-serif;
+}
