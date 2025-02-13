@@ -5,25 +5,32 @@ const FluidCursor = () => {
   const [angle, setAngle] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  // Handle mouse movement
-  const handleMouseMove = useCallback((e) => {
-    requestAnimationFrame(() => {
-      setMainCursor({ x: e.clientX, y: e.clientY });
-    });
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Animate dot in circular motion
+  const handleMouseMove = useCallback((e) => {
+    if (!isMobile) {
+      requestAnimationFrame(() => {
+        setMainCursor({ x: e.clientX, y: e.clientY });
+      });
+    }
+  }, [isMobile]);
+
   useEffect(() => {
+    if (isMobile) return;
     const intervalId = setInterval(() => {
       setAngle(prev => (prev + 0.1) % (2 * Math.PI));
     }, 1000 / 60);
-    
     return () => clearInterval(intervalId);
-  }, []);
+  }, [isMobile]);
 
-  // Handle interactive elements
   useEffect(() => {
+    if (isMobile) return;
     const handleMouseOver = (e) => {
       if (e.target.matches('button, a, input, [role="button"]')) {
         setIsHovering(true);
@@ -52,9 +59,10 @@ const FluidCursor = () => {
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [handleMouseMove]);
+  }, [handleMouseMove, isMobile]);
 
-  // Calculate dimensions
+  if (isMobile) return null;
+
   const ringSize = isHovering ? 40 : 24;
   const dotSize = 2;
   const radius = (ringSize / 2) - (dotSize / 2);
@@ -68,12 +76,10 @@ const FluidCursor = () => {
           * {
             cursor: none !important;
           }
-          
           .cursor-main {
             background: rgb(255, 255, 255);
             mix-blend-mode: difference;
           }
-          
           .cursor-ring {
             border: 2px solid rgb(180, 181, 183);
             background: transparent;
@@ -81,7 +87,6 @@ const FluidCursor = () => {
         `}
       </style>
       <div className="fixed inset-0 pointer-events-none z-50">
-        {/* Ring cursor */}
         <div
           className="cursor-ring fixed rounded-full will-change-transform"
           style={{
@@ -91,8 +96,6 @@ const FluidCursor = () => {
             transition: 'width 0.3s, height 0.3s'
           }}
         />
-        
-        {/* Center dot cursor */}
         <div
           className="cursor-main fixed w-1 h-1 rounded-full will-change-transform"
           style={{
@@ -100,8 +103,6 @@ const FluidCursor = () => {
             transition: 'transform 0.1s'
           }}
         />
-        
-        {/* Orbiting dot cursor */}
         <div
           className="cursor-main fixed rounded-full will-change-transform"
           style={{
