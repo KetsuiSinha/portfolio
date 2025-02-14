@@ -38,10 +38,10 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="w-full bg-gray-900">
+    <div className="w-full">
       <div className="relative">
         {/* Responsive blur effect */}
-        <div className="absolute -z-10 right-[10%] sm:right-[20%] top-[10%] sm:top-[20%] h-[15rem] sm:h-[20rem] md:h-[30rem] w-[15rem] sm:w-[20rem] md:w-[30rem] rounded-full bg-gray-700 opacity-20 blur-[50px] sm:blur-[100px]" />
+        <div className="bg-gradient-to-br from-black to-violet-900 absolute -z-10 right-[10%] sm:right-[20%] top-[10%] sm:top-[20%] h-[15rem] sm:h-[20rem] md:h-[30rem] w-[15rem] sm:w-[20rem] md:w-[30rem] rounded-full bg-gray-700 opacity-20 blur-[50px] sm:blur-[100px]" />
         
         <div className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">

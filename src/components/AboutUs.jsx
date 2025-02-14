@@ -26,41 +26,40 @@ export default function AboutMe() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 w-full">
-      {/* Hero Section */}
-      <section className="relative pt-8 sm:pt-16">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
+    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl min-h-screen bg-gray-900 w-full">
+      {/* Hero Section (Further Raised to Show More of About Me) */}
+      <section className="relative pt-2 sm:pt-8">
+  <div className="min-h-[55vh] flex items-center">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      <div className="text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-300 mb-3 sm:mb-5">
+          Machine Learning Engineer
+        </h1>
+        <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto px-4">
+          Passionate about transforming data into intelligent solutions
+        </p>
+        <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
+          <a 
+            href="/public/resume.pdf" 
+            download="My_Resume.pdf"
+            className="rounded-md bg-gray-600 px-4 sm:px-5 py-2 text-sm font-semibold text-white shadow-lg hover:bg-gray-500 transition-all duration-300 w-full sm:w-auto"
+          >
+            Download Resume
+          </a>
+          <button 
+            onClick={() => window.dispatchEvent(new Event('navigateToContact'))} 
+            className="rounded-md bg-gray-600 px-4 sm:px-5 py-2 text-sm font-semibold text-white shadow-lg hover:bg-gray-500 transition-all duration-300 w-full sm:w-auto"
+          >
+            Contact Me
+          </button>
         </div>
-        
-        <div className="min-h-[80vh] flex items-center">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-            <div className="text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-300 mb-4 sm:mb-6">
-                Machine Learning Engineer
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-                Passionate about transforming data into intelligent solutions
-              </p>
-              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
-                <a 
-                  href="/public/resume.pdf" 
-                  download="My_Resume.pdf"
-                  className="rounded-md bg-gray-600 px-4 sm:px-5 py-2 text-sm font-semibold text-white shadow-lg hover:bg-gray-500 transition-all duration-300 w-full sm:w-auto"
-                >
-                  Download Resume
-                </a>
-                <button 
-                  onClick={() => window.dispatchEvent(new Event('navigateToContact'))} 
-                  className="rounded-md bg-gray-600 px-4 sm:px-5 py-2 text-sm font-semibold text-white shadow-lg hover:bg-gray-500 transition-all duration-300 w-full sm:w-auto"
-                >
-                  Contact Me
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
       {/* About Section */}
       <section id="about" className="py-12 sm:py-16 lg:py-20 relative">
