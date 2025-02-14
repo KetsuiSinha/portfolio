@@ -59,13 +59,7 @@ export default function HeroSection() {
             Contact Me
           </button>
 
-          <a 
-            href="/public/resume.pdf" 
-            download="resume.pdf"
-            className="rounded-md bg-gray-600 px-3 py-1.5 text-sm font-semibold text-white shadow-lg hover:bg-gray-500 transition-all duration-300"
-          >
-            Download Resume
-          </a>
+          <a href="/resume.pdf" download="resume.pdf">Download Resume</a>
         </div>
       </motion.div>
     </div>
