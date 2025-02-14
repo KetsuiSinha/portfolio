@@ -59,7 +59,7 @@ export default function HeroSection() {
             Contact Me
           </button>
 
-          <a href="/resume.pdf" download="resume.pdf">Download Resume</a>
+          <a href="/public/resume.pdf" download="nishchay_resume.pdf">Download Resume</a>
         </div>
       </motion.div>
     </div>
