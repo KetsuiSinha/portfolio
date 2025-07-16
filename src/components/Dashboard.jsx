@@ -63,13 +63,6 @@ const AdvancedDashboard = () => {
               >
                 Contact Me
               </button>
-              <a 
-                href="/public/resume.pdf" 
-                download="My_Resume.pdf"
-                className="rounded-md bg-gray-700 px-4 py-2 text-white font-semibold shadow-md hover:bg-gray-600 transition-all duration-300"
-              >
-                Download Resume
-              </a>
             </div>
           </motion.div>
         </div>
