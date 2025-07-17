@@ -24,7 +24,7 @@ const FluidCursor = () => {
   useEffect(() => {
     if (isMobile) return;
     const intervalId = setInterval(() => {
-      setAngle(prev => (prev + 0.1) % (2 * Math.PI));
+      setAngle(prev => (prev + 0.05) % (2 * Math.PI)); // Half speed from previous 0.02
     }, 1000 / 60);
     return () => clearInterval(intervalId);
   }, [isMobile]);
@@ -92,7 +92,7 @@ const FluidCursor = () => {
           style={{
             width: `${ringSize}px`,
             height: `${ringSize}px`,
-            transform: `translate(${mainCursor.x - ringSize/2}px, ${mainCursor.y - ringSize/2}px) scale(${isClicked ? 1.2 : 1})`,
+            transform: `translate(${mainCursor.x - ringSize / 2}px, ${mainCursor.y - ringSize / 2}px) scale(${isClicked ? 1.2 : 1})`,
             transition: 'width 0.3s, height 0.3s'
           }}
         />
@@ -108,7 +108,7 @@ const FluidCursor = () => {
           style={{
             width: `${dotSize}px`,
             height: `${dotSize}px`,
-            transform: `translate(${dotX - dotSize/2}px, ${dotY - dotSize/2}px) scale(${isClicked ? 0.5 : 1})`,
+            transform: `translate(${dotX - dotSize / 2}px, ${dotY - dotSize / 2}px) scale(${isClicked ? 0.5 : 1})`,
             transition: 'transform 0.1s'
           }}
         />
