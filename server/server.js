@@ -1,0 +1,15 @@
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
+const app = express();
+
+app.use(cors());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/download', (req, res) => {
+  const file = path.join(__dirname, 'public', 'resume.pdf');
+  res.download(file, 'My_Resume.pdf');
+});
+
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
