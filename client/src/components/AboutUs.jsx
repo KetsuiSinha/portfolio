@@ -40,8 +40,7 @@ export default function AboutMe() {
         </p>
         <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
           <a 
-            href="/public/resume.pdf" 
-            download="My_Resume.pdf"
+            href="https://resume-download.onrender.com" 
             className="rounded-md bg-gray-600 px-4 sm:px-5 py-2 text-sm font-semibold text-white shadow-lg hover:bg-gray-500 transition-all duration-300 w-full sm:w-auto"
           >
             Download Resume
