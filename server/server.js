@@ -10,6 +10,15 @@ app.get('/', (req, res) => {
   res.send('Resume API is running. Use /download to get the resume.');
 });
 
+app.get('/download', (req, res) => {
+  const file = path.resolve(__dirname, 'public', 'resume.pdf');
+  res.download(file, 'My_Resume.pdf', (err) => {
+    if (err) {
+      console.error("Download error:", err);
+      res.status(500).send("Error downloading the file.");
+    }
+  });
+});
 
 const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
