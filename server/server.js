@@ -6,10 +6,10 @@ const app = express();
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/download', (req, res) => {
-  const file = path.join(__dirname, 'public', 'resume.pdf');
-  res.download(file, 'My_Resume.pdf');
+app.get('/', (req, res) => {
+  res.send('Resume API is running. Use /download to get the resume.');
 });
+
 
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
