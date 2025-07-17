@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 app.get('/download', (req, res) => {
   const file = path.resolve(__dirname, 'public', 'resume.pdf');
-  res.download(file, 'My_Resume.pdf', (err) => {
+  res.download(file, 'Resume_NishchaySinha.pdf', (err) => {
     if (err) {
       console.error("Download error:", err);
       res.status(500).send("Error downloading the file.");
